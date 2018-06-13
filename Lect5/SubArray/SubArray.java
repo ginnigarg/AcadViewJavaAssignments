@@ -13,25 +13,24 @@ public class SubArray {
 			arr_count[i] = 1;
 		}
 		for(int i=0;i<size-1;i++)
-        {
+        	{
 			for(int j=i;j<size-1;j++)
 			{
 				if(arr[j]<arr[j+1])
-            		arr_count[i]++;
-            	else
-            		break;
-            }
+            				arr_count[i]++;
+            			else
+            				break;
+            		}
 
-        }
+        	}
 
-        int max=arr_count[0];
-        for(int i=0;i<size;i++)
-        {
-        	if(arr_count[i]>max)
-                max=arr_count[i];
-        }
-         
-        return max;
+        	int max=arr_count[0];
+        	for(int i=0;i<size;i++)
+        	{
+        		if(arr_count[i]>max)
+                		max=arr_count[i];
+        	} 
+        	return max;
 	}
 	
 	public static void main(String [] args) {
