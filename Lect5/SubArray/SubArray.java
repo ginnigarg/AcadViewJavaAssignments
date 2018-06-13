@@ -14,9 +14,9 @@ public class SubArray {
 		}
 		for(int i=0;i<size-1;i++)
         {
-            for(int j=i;j<size-1;j++)
-            {
-            	if(arr[j]<arr[j+1])
+			for(int j=i;j<size-1;j++)
+			{
+				if(arr[j]<arr[j+1])
             		arr_count[i]++;
             	else
             		break;
