@@ -1,17 +1,17 @@
 package dyanmicArray;
 
 public class stack<T> {
-	Object [] stackUsingArray;
+	Integer [] stackUsingArray;
 	int index;
 	int currentSize;
 	
 	stack() {
-		stackUsingArray = new Object[5];
+		stackUsingArray = new Integer[5];
 		index=0;
 		currentSize=5;
 	}
 	
-	public void push(Object val) {
+	public void push(Integer val) {
 		if(index>=currentSize) {
 			restructure();
 		}
@@ -32,7 +32,7 @@ public class stack<T> {
 		return index;
 	}
 	
-	public Object top() {
+	public Integer top() {
 		return stackUsingArray[index-1];
 	}
 	
@@ -41,8 +41,8 @@ public class stack<T> {
 	}
 	
 	public void restructure() {
-		Object temp [] = stackUsingArray;
-		stackUsingArray = new Object[currentSize*2];
+		Integer temp [] = stackUsingArray;
+		stackUsingArray = new Integer[currentSize*2];
 		for(int i=0;i<currentSize;i++) {
 			stackUsingArray[i] = temp[i];
 		}
