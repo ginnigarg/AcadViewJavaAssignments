@@ -2,17 +2,17 @@ package dyanmicArray;
 
 public class DynamicArray<T> {
 	
-	Object [] dynamicArray;
+	Integer [] dynamicArray;
 	int index;
 	int currentSize;
 	
 	DynamicArray() {
-		dynamicArray = new Object[5];
+		dynamicArray = new Integer[5];
 		index=0;
 		currentSize=5;
 	}
 	
-	public void add(Object val) {
+	public void add(Integer val) {
 		if(index>=currentSize) {
 			restructure();
 		}
@@ -20,13 +20,9 @@ public class DynamicArray<T> {
 		index++;
 	}
 	
-	public void removeLast() {
+	public void removeLast() throws Exception {
 		if(index < 1) {
-			try {
-				throw new Exception("Array Out Of Bound");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			throw new Exception("Array Out Of Bound");
 		} else {
 			dynamicArray[index-1]=0;
 			index--;
@@ -37,7 +33,7 @@ public class DynamicArray<T> {
 		return index;
 	}
 	
-	public Object get(int ind) {
+	public Integer get(int ind) {
 		if(ind > index || ind < 0 )
 		{
 			return -1;
@@ -45,7 +41,7 @@ public class DynamicArray<T> {
 		return dynamicArray[ind];
 	}
 	
-	public void set(int ind,Object val) {
+	public void set(int ind,Integer val) {
 		if(ind > index || ind < 0) {
 			try {
 				throw new Exception("Array Out of Bound") ;
@@ -59,11 +55,27 @@ public class DynamicArray<T> {
 		}
 	}
 	
-	public void addAll(DynamicArray )
+	public void addAll(DynamicArray<Integer> arr){
+		for(int i=0;i<arr.size();i++)
+		{
+			add(arr.get(i));
+		}
+	}
+	
+	public int indexOf(Integer value) {
+		for(int i=0;i<index;i++)
+		{
+			if(get(i) == value) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	
 	public void restructure() {
-		Object temp [] = dynamicArray;
-		dynamicArray = new Object[currentSize*2];
+		Integer temp [] = dynamicArray;
+		dynamicArray = new Integer[currentSize*2];
 		for(int i=0;i<currentSize;i++) {
 			dynamicArray[i] = temp[i];
 		}
@@ -71,6 +83,7 @@ public class DynamicArray<T> {
 	}
 	
 	public static void main(String[] args) {
+		DynamicArray<Integer> arr1 = new DynamicArray<Integer>();
 		DynamicArray<Integer> arr = new DynamicArray<Integer>();
 		arr.add(5);
 		arr.add(4);
@@ -78,9 +91,9 @@ public class DynamicArray<T> {
 		arr.add(6);
 		arr.add(7);
 		arr.add(8);
-		arr.set(7,1);
+		arr1.addAll(arr);
 		for(int i=0;i<arr.size();i++) {
-			System.out.println(arr.get(i));
+			System.out.println(arr1.get(i));
 		}
 		
 	}

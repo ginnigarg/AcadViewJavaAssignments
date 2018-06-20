@@ -19,13 +19,9 @@ public class stack<T> {
 		index++;
 	}
 	
-	public void pop() {
+	public void pop() throws Exception {
 		if(index < 1) {
-			try {
-				throw new Exception("stackUsingArray Underflow");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			throw new Exception("stackUsingArray Underflow");
 		} else {
 			stackUsingArray[index-1]=0;
 			index--;
@@ -53,7 +49,7 @@ public class stack<T> {
 		currentSize*=2;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		stack<Integer> arr = new stack<Integer>();
 		arr.push(5);
 		System.out.println(arr.top());
