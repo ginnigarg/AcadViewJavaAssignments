@@ -14,7 +14,7 @@ public class MapKeyValue {
 		String value = "";
 		String quit = "quit";
 		
-		System.out.println("IN ORDER TO STOP ENTERING, ENTER YOUR NAME AS NAME");
+		System.out.println("IN ORDER TO STOP ENTERING, ENTER YOUR NAME AS quit");
 		System.out.print("Enter your name : ");
 		key = sc.nextLine();
 		while(!(key.equals(quit))) {
