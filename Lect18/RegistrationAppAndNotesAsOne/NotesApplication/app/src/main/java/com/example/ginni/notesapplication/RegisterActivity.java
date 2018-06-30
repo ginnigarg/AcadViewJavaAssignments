@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                     password.setText("");
                     cnfpassword.setText("");
                 } else {
-                    sharedPreferences.setCredentials(user,pwd);
+                    //sharedPreferences.setCredentials(user,pwd);
                     database.addUser(user,pwd);
                     String successRegisterText = "Successfully Registered. Please Login with your credentials";
                     Toast.makeText(getApplicationContext(),successRegisterText,Toast.LENGTH_LONG).show();

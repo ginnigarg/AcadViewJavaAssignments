@@ -52,15 +52,16 @@ public class LoginActivity extends AppCompatActivity {
                 password = pwd.getText().toString();
 
                 if(database.checkUser(name)) {
-                    if(sharedPreferences.getPassword().contentEquals(password)) {
+                    if(database.authenticate(name,password)) {
                         sharedPreferences.changeStatus(true);
+                        sharedPreferences.setCredentials(name,password);
                         Intent intent = new Intent(LoginActivity.this,NotesActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
                         username.setText("");
                         pwd.setText("");
-                        Toast.makeText(getApplicationContext(),"Incorrect Passowrd",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Incorrect Password",Toast.LENGTH_LONG).show();
                     }
                 } else {
                     String notUserString = "You have yet not registered. Register Now";

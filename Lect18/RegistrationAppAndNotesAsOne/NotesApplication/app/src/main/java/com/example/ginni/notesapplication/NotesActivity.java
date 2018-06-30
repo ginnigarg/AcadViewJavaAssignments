@@ -39,10 +39,9 @@ public class NotesActivity extends AppCompatActivity {
         dataBase = new DataBase(getApplicationContext());
         sharedPreferences = new Preferences(getApplicationContext());
 
-        Toast.makeText(getApplicationContext(),"Welcome"+sharedPreferences.getName(),Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Welcome"+sharedPreferences.getName(),Toast.LENGTH_LONG);
 
         displayNotes();
-
 
     }
 
